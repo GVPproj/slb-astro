@@ -1,4 +1,6 @@
 ---
+import "../styles/global.css"
+
 const pageTitle = "About Me"
 const identity = {
   firstName: "Sophia",
@@ -10,6 +12,9 @@ const showLocations = ["Canada", "Europe", "Japan", "the United States"]
 const happy = true
 const finished = false
 const goal = 3
+
+const locColor = "#F97906"
+const fontWeight = 700
 ---
 
 <html lang="en">
@@ -19,6 +24,16 @@ const goal = 3
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
+    <style define:vars={{ locColor, fontWeight }}>
+      h1 {
+        color: peachpuff;
+        font-size: 4rem;
+      }
+      .location {
+        color: var(--locColor);
+        font-weight: var(--fontWeight);
+      }
+    </style>
   </head>
   <body>
     <a href="/">Home</a>
@@ -46,7 +61,7 @@ const goal = 3
     </ul>
     <p>I've exhibited in:</p>
     <ul>
-      {showLocations.map((loc) => <li>{loc}</li>)}
+      {showLocations.map((loc) => <li class="location">{loc}</li>)}
     </ul>
     {happy && <p>I am happy to be learning Astro!</p>}
 
